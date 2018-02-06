@@ -8,7 +8,7 @@ Download file or clone project
 
 ```
 sudo mv fzpasswd /usr/local/bin/
-chmod +x /usr/local/bin/
+chmod +x /usr/local/bin/fzpasswd
 ```
 
 ## Usage
