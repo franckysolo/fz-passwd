@@ -1,0 +1,22 @@
+#!/usr/bin/env php
+<?php
+
+echo "Show me filezilla Websites credentials";
+echo PHP_EOL;
+
+$user = getenv('USER');
+
+$path = "/home/$user/.config/filezilla/sitemanager.xml";
+$class = simplexml_load_file($path);
+
+foreach ($class->Servers[0] as $key => $value) {
+    echo sprintf(
+      '%s|%s|%s',
+      $value->Host->__toString(),
+      $value->User->__toString(),
+      base64_decode($value->Pass->__toString())
+    );
+    echo PHP_EOL;
+}
+
+exit;
